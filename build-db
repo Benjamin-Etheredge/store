@@ -1,4 +1,4 @@
-db.createCollection('products');
+db.createCollection('store');
 db.store.insert({name: "Mt. Dew", category: "Drinks", price: 1.29, aisle: 11, quantity: 125});
 db.store.insert({name: "Dr. Pepper", category: "Drinks", price: 1.29, aisle: 11, quantity: 50});
 db.store.insert({name: "Sunny D", category: "Drinks", price: 3.49, aisle: 11, quantity: 15});
