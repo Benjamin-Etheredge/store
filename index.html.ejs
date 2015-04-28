@@ -1,0 +1,39 @@
+<style>table,tr,td,th{border:1px solid #ccc;padding:10px}</style>
+<h1>Store - API commands</h1><table>
+<tr><th>Action</th><th>Method</th><th>Url (http://una.dbms.rocks/8027/store)</th><th>Option detail</th></tr>
+<tr><td>Get all items</td><td>GET</td><td>/all</td></tr>
+<tr><td>List all product names</td><td>GET</td><td>/names</td></tr>
+<tr><td>List all categories</td><td>GET</td><td>/categories</td></tr>
+<tr><td>List all aisles</td><td>GET</td><td>/aisles</td></tr>
+<tr><td>Get items by name</td><td>GET</td><td>/name/(name)</td><td>(name) ... exact name of item</td></tr>
+<tr><td>Get items by category</td><td>GET</td><td>/category/(category)</td><td>(category) ... category of item</td></tr>
+<tr><td>Get items by price</td><td>GET</td><td>/price/(comparison)/(price)</td><td>(comparison) ...  =, <, or ><br>(price) - price to match with comparison</td></tr>
+<tr><td>Get items by quantity</td><td>GET</td><td>/quantity/(comparison)/(quantity)</td><td>(comparison) ...  =, <, or ><br>(quantity) - quantity to match with comparison</td></tr>
+<tr><td>Get items by aisle</td><td>GET</td><td>/aisle/(comparison)/(aisle)</td><td>(comparison) ...  =, <, or ><br>(aisle) - aisle to match with comparison</td></tr>
+<tr><td>Update items by name</td><td>POST</td><td>/update/name/(name)</td><td>(name) ... name of item to be updated<br>POST parameter is JSON for the update</td></tr>
+<tr><td>Update items by category</td><td>POST</td><td>/store/update/category/(category)</td><td>(category) ... category of item</td></tr>
+<tr><td>Update items by price</td><td>POST</td><td>/update/price/(price)</td><td>(price) ... price of item to be updated<br>POST parameter is JSON for the update</td></tr>
+<tr><td>Update items by quantity</td><td>POST</td><td>/update/quantity/(quantity)</td><td>(quantity) ... quantity of item to be updated<br>POST parameter is JSON for the update</td></tr>
+<tr><td>Update items by aisle</td><td>POST</td><td>/update/aisle/(aisle)</td><td>(aisle) ... aisle of item to be updated<br>POST parameter is JSON for the update</td></tr>
+<tr><td>Insert item</td><td>PUT</td><td>/product</td><td>PUT parameter is JSON object for item to be inserted</td></tr>
+<tr><td>Delete products by name</td><td>DELETE</td><td>/name/(name)</td><td>(name) ... exact name of items to be removed</td></tr>
+<tr><td>Delete products by category</td><td>DELETE</td><td>/category/(category)</td><td>(category) ... exact category of items to be removed</td></tr>
+<tr><td>Delete products by aisle</td><td>DELETE</td><td>/aisle/(aisle)</td><td>(aisle) ... exact aisle of items to be removed</td></tr>
+</table>
+<p>Check us out on Github: <a href='https://github.com/Benjamin-Etheredge/store'>https://github.com/Benjamin-Etheredge/store</a></p>
+
+<h2>cURL command examples:</h2>
+
+<p>(GET can be done via a regular browser.)</p>
+
+<h3>PUT:</h3>
+<p>Example to insert product.</p>
+<p>curl -H "Content-Type: application/json" -X PUT -d '{"name":"Toilet Paper","category":"Home","price":"5","quantity":"20","aisle":7}' http://una.dbms.rocks:8027/store/product</p>
+
+<h3>POST:</h3>
+<p>Example to update product named "Beer" and change its name to "Heineken".</p>
+<p>curl -H "Content-Type: application/json" -X POST -d '{"name":"Heineken"}' "http://una.dbms.rocks:8027/store/update/name/Beer"</p>
+
+<h3>DELETE:</h3>
+<p>Example to delete product with name "Toilet Paper".</p>
+<p>curl -H "Content-Type: application/json" -X DELETE http://una.dbms.rocks:8027/store/name/Toilet%20Paper</p>
